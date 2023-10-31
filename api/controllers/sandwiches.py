@@ -25,7 +25,6 @@ def create_sandwich(db: Session, sandwich_data: schemas.SandwichCreate) -> model
 
     return new_sandwich
 
-
 def update_sandwich(db: Session, sandwich_id: int, updated_data: schemas.SandwichUpdate) -> models.Sandwich:
     sandwich_query = db.query(models.Sandwich).filter(models.Sandwich.id == sandwich_id)
     update_info = updated_data.dict(exclude_unset=True)
@@ -34,7 +33,7 @@ def update_sandwich(db: Session, sandwich_id: int, updated_data: schemas.Sandwic
     db.commit()
 
     return sandwich_query.first()
-
+x
 
 def delete_sandwich(db: Session, sandwich_id: int) -> Response:
     sandwich_to_delete = db.query(models.Sandwich).filter(models.Sandwich.id == sandwich_id)
